@@ -1,6 +1,6 @@
 /**
  * Stockfoto's van Pexels (https://www.pexels.com/license/): gratis voor
- * commercieel gebruik, naamsvermelding niet verplicht (we tonen toch een bronlink).
+ * commercieel gebruik, naamsvermelding niet verplicht (daarom tonen we geen bronvermelding).
  * Vervang ze geleidelijk door echte projectfoto's.
  */
 export type StockImage = {

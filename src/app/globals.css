@@ -1836,21 +1836,6 @@ th {
 .page-hero-img img {
   object-fit: cover;
 }
-.page-hero-img figcaption {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  max-width: 100%;
-  padding: 0.2rem 0.55rem;
-  font-size: 0.68rem;
-  line-height: 1.4;
-  color: #f5f2ec;
-  background: rgb(26 28 31 / 0.6);
-  border-top-left-radius: var(--radius);
-}
-.page-hero-img figcaption a {
-  color: inherit;
-}
 @media (max-width: 900px) {
   .page-hero.has-image .page-hero-grid {
     grid-template-columns: 1fr;

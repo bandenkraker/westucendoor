@@ -97,10 +97,6 @@ export function PageHero({
               priority
               sizes="(max-width: 900px) 100vw, 520px"
             />
-            <figcaption>
-              Foto: <a href={img.source} target="_blank" rel="noopener nofollow">{img.credit}</a>,{" "}
-              <a href={img.licenseUrl} target="_blank" rel="noopener nofollow">{img.license}</a>
-            </figcaption>
           </figure>
         )}
       </div>

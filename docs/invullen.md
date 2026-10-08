@@ -31,6 +31,10 @@ Alles wat hieronder staat, is op de site zichtbaar gemarkeerd met een geel/oranj
 
 ## Beeld
 
+Bovenaan elke pagina (behalve home en de juridische pagina's) staat nu een passende stockfoto van **Pexels** (gratis voor commercieel gebruik, zie pexels.com/license). Ze staan per URL in `src/content/images.ts` en worden direct via het Pexels-CDN geladen in de juiste maat (WebP, srcset). Vervang ze geleidelijk door echte projectfoto's: zet de foto in `public/` en verwijs ernaar in `images.ts`.
+
+> Let op: de foto's op de plaatspagina's van Middelburg, Goes en Bergen op Zoom zijn algemene Nederlandse straatbeelden, geen foto's van die plaatsen zelf. Eigen foto's van die plaatsen zijn voor lokale SEO beter.
+
 Alle plaatshouders beschrijven exact welke opname nodig is.
 
 | Plek | Gewenste opname |

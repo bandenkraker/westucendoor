@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import { imageFor, type StockImage } from "@/content/images";
 import { Icon } from "./Icon";
 import { site } from "@/lib/site";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
@@ -51,35 +53,56 @@ export function PageHero({
   title,
   lead,
   crumbs,
+  image,
   children,
 }: {
   eyebrow?: string;
   title: string;
   lead?: string;
   crumbs: { name: string; path: string }[];
+  /** Standaard gekozen op basis van de URL; `null` = geen foto */
+  image?: StockImage | null;
   children?: React.ReactNode;
 }) {
+  const img = image === undefined ? imageFor(crumbs[crumbs.length - 1]?.path ?? "/") : image;
   return (
-    <header className="page-hero plaster">
-      <div className="container">
-        <Breadcrumbs items={crumbs} />
-        {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-        <h1>{title}</h1>
-        {lead && <p className="lead">{lead}</p>}
-        <div className="hero-actions">
-          <Link href="/offerte-aanvragen" className="btn btn-primary">
-            Gratis offerte
-          </Link>
-          <a
-            href={site.whatsapp}
-            className="btn btn-ghost"
-            target="_blank"
-            rel="noopener"
-          >
-            <Icon name="whatsapp" size={20} /> WhatsApp ons
-          </a>
+    <header className={`page-hero plaster${img ? " has-image" : ""}`}>
+      <div className="container page-hero-grid">
+        <div>
+          <Breadcrumbs items={crumbs} />
+          {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+          <h1>{title}</h1>
+          {lead && <p className="lead">{lead}</p>}
+          <div className="hero-actions">
+            <Link href="/offerte-aanvragen" className="btn btn-primary">
+              Gratis offerte
+            </Link>
+            <a
+              href={site.whatsapp}
+              className="btn btn-ghost"
+              target="_blank"
+              rel="noopener"
+            >
+              <Icon name="whatsapp" size={20} /> WhatsApp ons
+            </a>
+          </div>
+          {children}
         </div>
-        {children}
+        {img && (
+          <figure className="page-hero-img">
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              priority
+              sizes="(max-width: 900px) 100vw, 520px"
+            />
+            <figcaption>
+              Foto: <a href={img.source} target="_blank" rel="noopener nofollow">{img.credit}</a>,{" "}
+              <a href={img.licenseUrl} target="_blank" rel="noopener nofollow">{img.license}</a>
+            </figcaption>
+          </figure>
+        )}
       </div>
     </header>
   );
